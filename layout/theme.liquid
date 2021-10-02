@@ -31,14 +31,23 @@
 
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
 
+    {%- assign loadThemeStylesheet = loadThemeStylesheet -%}
+    {%- assign loadTemplateStylesheet = template.name -%}
+    {% if loadTemplateStylesheet != true or loadThemeStylesheet != true %}
+      {%- render 'stylesheet' with loadTemplateStylesheet: true, loadThemeStylesheet: true -%}
+    {% endif %}
+
   </head>
 
   <body>
 
+
     {% section 'header' %}
 
     <main id="MainContent" role="main" tabindex="-1">
-      {{ content_for_layout }}MAIN
+
+        {{ template.name }}
+      {{ content_for_layout }}
     </main>
 
     {% section 'footer' %}

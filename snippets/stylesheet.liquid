@@ -1,0 +1,64 @@
+{% comment%}
+    # loadTemplateStylesheet.
+    # This will laod styles for each template files individually.
+{% endcomment %}
+{% assign loadTemplateStylesheet = template.name %} 
+{% case loadTemplateStylesheet %}
+
+
+{% comment%}
+    # Hompage
+{% endcomment %}
+{% when 'index' %}
+
+<link rel="stylesheet" href="{{ 'image-banner.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'image-banner.css' | asset_url | stylesheet_tag }}</noscript>
+
+
+
+{% comment%}
+    # Collection
+{% endcomment %}
+{% when 'collection' %}
+
+<link rel="stylesheet" href="{{ 'main-collection.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'main-collection.css' | asset_url | stylesheet_tag }}</noscript>
+
+
+{% comment%}
+Hompage
+{% endcomment %}
+{% when 'page' %}
+
+<link rel="stylesheet" href="{{ 'main-page.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'main-page.css' | asset_url | stylesheet_tag }}</noscript>
+
+
+{% comment%}endcase{% endcomment %}
+{% endcase %}
+
+
+
+
+{% comment%}
+    # loadThemeStylesheet.
+{% endcomment %}
+{% assign loadThemeStylesheet = 'theme' %} 
+{% case loadThemeStylesheet %}
+
+
+{% comment%}
+    # theme
+{% endcomment %}
+{% when 'theme' %}
+
+<link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'theme.css' | asset_url | stylesheet_tag }}</noscript>
+
+
+{% comment%}endcase{% endcomment %}
+{% endcase %}
