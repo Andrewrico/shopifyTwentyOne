@@ -1,0 +1,72 @@
+{% comment%}
+####################################################
+
+    # loadTemplateJavascript.
+    # This will laod styles for each template files individually.
+    
+{% endcomment %}
+{% assign loadTemplateJavascript = template.name %} 
+{% case loadTemplateJavascript %}
+
+
+{% comment%}
+ ####################################################
+
+    # Hompage | Add files bellow
+
+{% endcomment %}
+{% when 'index' %}
+<link rel="stylesheet" href="{{ 'image-banner.js' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'image-banner.js' | asset_url | stylesheet_tag }}</noscript>
+
+
+{% comment%}
+####################################################
+
+    # Collection | Add files bellow
+    
+{% endcomment %}
+{% when 'collection' %}
+
+
+{% comment%}
+####################################################
+
+    # page | Add files bellow
+    
+{% endcomment %}
+{% when 'page' %}
+
+
+{% comment%}
+
+    # endcase
+    
+ ####################################################
+{% endcomment %}
+{% endcase %}
+
+
+{% comment%}
+####################################################
+
+    # loadThemeJavascript
+    
+{% endcomment %}
+{% assign loadThemeJavascript = 'theme' %} 
+{% case loadThemeJavascript %}
+
+
+{% comment%}
+####################################################
+
+    # Theme | Add files bellow
+    
+{% endcomment %}
+{% when 'theme' %}
+<script src="{{ 'script.js' | asset_url }}" defer="defer"></script>
+<script>console.log('{{ template.name }}')</script>
+
+
+{% comment%}endcase{% endcomment %}
+{% endcase %}

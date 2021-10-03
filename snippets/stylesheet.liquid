@@ -1,64 +1,57 @@
 {% comment%}
     # loadTemplateStylesheet.
-    # This will laod styles for each template files individually.
+    # This will load styles for each template files individually.
 {% endcomment %}
-{% assign loadTemplateStylesheet = template.name %} 
-{% case loadTemplateStylesheet %}
+{% assign loadOptimizedTemplateStylesheet = template.name %} 
+{% case loadOptimizedTemplateStylesheet %}
 
 
-{% comment%}
-    # Hompage
-{% endcomment %}
+
 {% when 'index' %}
 
-<link rel="stylesheet" href="{{ 'image-banner.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'image-banner.css' | asset_url }}" media="print" onload="this.media='all'">
 
-<noscript>{{ 'image-banner.css' | asset_url | stylesheet_tag }}</noscript>
+    <noscript>{{ 'image-banner.css' | asset_url | stylesheet_tag }}</noscript>
 
 
 
-{% comment%}
-    # Collection
-{% endcomment %}
+
 {% when 'collection' %}
 
-<link rel="stylesheet" href="{{ 'main-collection.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'main-collection.css' | asset_url }}" media="print" onload="this.media='all'">
 
-<noscript>{{ 'main-collection.css' | asset_url | stylesheet_tag }}</noscript>
+    <noscript>{{ 'main-collection.css' | asset_url | stylesheet_tag }}</noscript>
 
 
-{% comment%}
-Hompage
-{% endcomment %}
+
+
 {% when 'page' %}
 
-<link rel="stylesheet" href="{{ 'main-page.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'main-page.css' | asset_url }}" media="print" onload="this.media='all'">
 
-<noscript>{{ 'main-page.css' | asset_url | stylesheet_tag }}</noscript>
+    <noscript>{{ 'main-page.css' | asset_url | stylesheet_tag }}</noscript>
 
 
-{% comment%}endcase{% endcomment %}
+
+
+{% comment%} endcase {% endcomment %}
 {% endcase %}
 
 
 
 
-{% comment%}
-    # loadThemeStylesheet.
-{% endcomment %}
-{% assign loadThemeStylesheet = 'theme' %} 
-{% case loadThemeStylesheet %}
 
-
-{% comment%}
-    # theme
-{% endcomment %}
+{% comment%} # loadThemeStylesheet {% endcomment %}
+{% assign loadOptimizedThemeStylesheet = 'theme' %} 
+{% case loadOptimizedThemeStylesheet %}
 {% when 'theme' %}
 
-<link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'header.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'footer.css' | asset_url }}" media="print" onload="this.media='all'">
 
-<noscript>{{ 'theme.css' | asset_url | stylesheet_tag }}</noscript>
+    <noscript>{{ 'styles.css' | asset_url | stylesheet_tag }}</noscript>
+    <noscript>{{ 'header.css' | asset_url | stylesheet_tag }}</noscript>
+    <noscript>{{ 'footer.css' | asset_url | stylesheet_tag }}</noscript>
 
-
-{% comment%}endcase{% endcomment %}
 {% endcase %}

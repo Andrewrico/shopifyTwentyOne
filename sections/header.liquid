@@ -1,7 +1,5 @@
-<header class="header header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %}">
-
-    
-    <nav role="navigation">
+<header>
+    <nav>
         <ul>
           {%- for link in linklists.main-menu.links -%}
             <li>
@@ -37,5 +35,5 @@
             </li>
           {%- endfor -%}
         </ul>
-      </nav>
-  </header>
+    </nav>
+</header>

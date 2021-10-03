@@ -31,26 +31,33 @@
 
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
 
-    {%- assign loadThemeStylesheet = loadThemeStylesheet -%}
-    {%- assign loadTemplateStylesheet = template.name -%}
-    {% if loadTemplateStylesheet != true or loadThemeStylesheet != true %}
-      {%- render 'stylesheet' with loadTemplateStylesheet: true, loadThemeStylesheet: true -%}
-    {% endif %}
+    {%- liquid
+        assign loadOptimizedThemeStylesheet = loadOptimizedThemeStylesheet
+        assign loadOptimizedTemplateStylesheet = template.name
+        if loadOptimizedTemplateStylesheet != true or loadOptimizedThemeStylesheet != true
+        render 'stylesheet' with loadOptimizedTemplateStylesheet: true, loadOptimizedThemeStylesheet: true
+        endif
+    -%}
 
   </head>
 
   <body>
 
-
     {% section 'header' %}
 
     <main id="MainContent" role="main" tabindex="-1">
-
-        {{ template.name }}
       {{ content_for_layout }}
     </main>
 
     {% section 'footer' %}
+
+    {%- liquid
+        assign loadOptimizedThemeJavascript = loadOptimizedThemeJavascript
+        assign loadOptimizedTemplateJavascript = template.name
+        if loadOptimizedThemeJavascript != true or loadOptimizedTemplateJavascript != true 
+        render 'javascript' with loadOptimizedThemeJavascript: true, loadOptimizedThemeJavascript: true
+        endif
+    -%}
 
   </body>
 </html>
